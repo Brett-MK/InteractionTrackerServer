@@ -27,7 +27,7 @@ namespace InteractionTrackerServer.Models
         public CallData CallData { get; set; }
 
         [Required]
-        public string IssueStatus { get; set; }
+        public IssueStatus IssueStatus { get; set; }
 
         [Required]
         public CustomerStatus CustomerStatus { get; set; }

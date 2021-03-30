@@ -18,6 +18,6 @@ namespace InteractionTrackerServer.Models
         public string CcNumber { get; set; }
 
         [Required]
-        public string Direction { get; set; }
+        public Direction Direction { get; set; }
     }
 }

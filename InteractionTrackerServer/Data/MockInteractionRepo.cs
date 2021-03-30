@@ -16,11 +16,11 @@ namespace InteractionTrackerServer.Data
                             Timestamp = DateTime.Parse("2020-08-23T15:10:47.750079"),
                             Duration  = new Duration() {
                                 Value = "5",
-                                Unit = "MINUTES"
+                                Unit = Unit.Minutes
                             },
                             WaitingTime = new WaitingTime() {
                                 Value = "1450",
-                                Unit = "MILLISECONDS"
+                                Unit = Unit.Milliseconds
                             },
 	                        AgentData = new AgentData() {
 		                        AgentId = "49nvfos95a",
@@ -32,9 +32,9 @@ namespace InteractionTrackerServer.Data
                                 CallerName = "Trevor Borskov",
 		                        CallerNumber = "+10010020003",
 		                        CcNumber = "+19876543210",
-		                        Direction = "INBOUND"
+		                        Direction = Direction.Inbound
 	                        },
-                            IssueStatus = "resolved",
+                            IssueStatus = IssueStatus.Resolved,
 	                        CustomerStatus = CustomerStatus.VIP
                         },
                     new Interaction()
@@ -43,11 +43,11 @@ namespace InteractionTrackerServer.Data
                             Timestamp = DateTime.Parse("2020-08-23T15:10:47.750079"),
                             Duration  = new Duration() {
                                 Value = "5",
-                                Unit = "MINUTES"
+                                Unit = Unit.Minutes
                             },
                             WaitingTime = new WaitingTime() {
                                 Value = "1450",
-                                Unit = "MILLISECONDS"
+                                Unit = Unit.Milliseconds
                             },
                             AgentData = new AgentData() {
                                 AgentId = "49nvfos95a",
@@ -59,9 +59,9 @@ namespace InteractionTrackerServer.Data
                                 CallerName = "Trevor Borskov",
                                 CallerNumber = "+10010020003",
                                 CcNumber = "+19876543210",
-                                Direction = "INBOUND"
+                                Direction = Direction.Inbound
                             },
-                            IssueStatus = "resolved",
+                            IssueStatus = IssueStatus.Resolved,
                             CustomerStatus = CustomerStatus.VIP
                         },
                     new Interaction()
@@ -70,11 +70,11 @@ namespace InteractionTrackerServer.Data
                             Timestamp = DateTime.Parse("2020-08-23T15:10:47.750079"),
                             Duration  = new Duration() {
                                 Value = "5",
-                                Unit = "MINUTES"
+                                Unit = Unit.Minutes
                             },
                             WaitingTime = new WaitingTime() {
                                 Value = "1450",
-                                Unit = "MILLISECONDS"
+                                Unit = Unit.Milliseconds
                             },
                             AgentData = new AgentData() {
                                 AgentId = "49nvfos95a",
@@ -86,9 +86,9 @@ namespace InteractionTrackerServer.Data
                                 CallerName = "Trevor Borskov",
                                 CallerNumber = "+10010020003",
                                 CcNumber = "+19876543210",
-                                Direction = "INBOUND"
+                                Direction = Direction.Inbound
                             },
-                            IssueStatus = "resolved",
+                            IssueStatus = IssueStatus.Resolved,
                             CustomerStatus = CustomerStatus.VIP
                         },
                     new Interaction()
@@ -97,11 +97,11 @@ namespace InteractionTrackerServer.Data
                             Timestamp = DateTime.Parse("2020-08-23T15:10:47.750079"),
                             Duration  = new Duration() {
                                 Value = "5",
-                                Unit = "MINUTES"
+                                Unit = Unit.Minutes
                             },
                             WaitingTime = new WaitingTime() {
                                 Value = "1450",
-                                Unit = "MILLISECONDS"
+                                Unit = Unit.Milliseconds
                             },
                             AgentData = new AgentData() {
                                 AgentId = "49nvfos95a",
@@ -113,9 +113,9 @@ namespace InteractionTrackerServer.Data
                                 CallerName = "Trevor Borskov",
                                 CallerNumber = "+10010020003",
                                 CcNumber = "+19876543210",
-                                Direction = "INBOUND"
+                                Direction = Direction.Inbound
                             },
-                            IssueStatus = "resolved",
+                            IssueStatus = IssueStatus.Resolved,
                             CustomerStatus = CustomerStatus.VIP
                         },
                 };
