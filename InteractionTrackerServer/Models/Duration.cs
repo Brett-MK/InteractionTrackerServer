@@ -6,15 +6,12 @@ using System.Threading.Tasks;
 
 namespace InteractionTrackerServer.Models
 {
-    public class AgentData
+    public class Duration
     {
-        [Key]
-        public string AgentId { get; set; }
+        [Required]
+        public string Value { get; set; }
 
         [Required]
-        public string AgentName { get; set; }
-
-        [Required]
-        public string AgentEmail { get; set; }
+        public string Unit { get; set; }
     }
 }

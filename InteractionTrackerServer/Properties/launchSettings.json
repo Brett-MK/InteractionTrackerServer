@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "TalkDeskInterviewApp": {
+    "InteractionTrackerServer": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",

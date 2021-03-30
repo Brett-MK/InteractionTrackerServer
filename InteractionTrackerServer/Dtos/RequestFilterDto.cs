@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TalkDeskInterviewApp.Dtos
+namespace InteractionTrackerServer.Dtos
 {
     public class RequestFilterDto
     {

@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TalkDeskInterviewApp.Data;
+using InteractionTrackerServer.Data;
 
-namespace TalkDeskInterviewApp.Migrations
+namespace InteractionTrackerServer.Migrations
 {
     [DbContext(typeof(CommandContext))]
     partial class CommandContextModelSnapshot : ModelSnapshot

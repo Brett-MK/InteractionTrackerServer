@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TalkDeskInterviewApp.Dtos;
-using TalkDeskInterviewApp.Models;
+using InteractionTrackerServer.Dtos;
+using InteractionTrackerServer.Models;
 
-namespace TalkDeskInterviewApp.Profiles
+namespace InteractionTrackerServer.Profiles
 {
     public class CommandsProfile : Profile
     {

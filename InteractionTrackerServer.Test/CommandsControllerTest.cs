@@ -5,12 +5,12 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using TalkDeskInterviewApp.Controllers;
-using TalkDeskInterviewApp.Data;
-using TalkDeskInterviewApp.Dtos;
-using TalkDeskInterviewApp.Models;
+using InteractionTrackerServer.Controllers;
+using InteractionTrackerServer.Data;
+using InteractionTrackerServer.Dtos;
+using InteractionTrackerServer.Models;
 
-namespace TalkDeskInterviewApp.Test
+namespace InteractionTrackerServer.Test
 {
     [TestClass]
     public class CommandsControllerTest

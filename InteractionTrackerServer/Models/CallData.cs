@@ -6,19 +6,18 @@ using System.Threading.Tasks;
 
 namespace InteractionTrackerServer.Models
 {
-    public class Command
+    public class CallData
     {
-        [Key]
-        public int Id { get; set; }
+        [Required]
+        public string CallerName { get; set; }
 
         [Required]
-        [MaxLength(250)]
-        public string HowTo { get; set; }
+        public string CallerNumber { get; set; }
 
         [Required]
-        public string Line { get; set; }
+        public string CcNumber { get; set; }
 
         [Required]
-        public string Platform { get; set; }
+        public string Direction { get; set; }
     }
 }

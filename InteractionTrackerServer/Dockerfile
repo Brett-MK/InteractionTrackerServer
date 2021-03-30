@@ -7,16 +7,16 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
 WORKDIR /src
-COPY ["TalkDeskInterviewApp/TalkDeskInterviewApp.csproj", "TalkDeskInterviewApp/"]
-RUN dotnet restore "TalkDeskInterviewApp/TalkDeskInterviewApp.csproj"
+COPY ["InteractionTrackerServer/InteractionTrackerServer.csproj", "InteractionTrackerServer/"]
+RUN dotnet restore "InteractionTrackerServer/InteractionTrackerServer.csproj"
 COPY . .
-WORKDIR "/src/TalkDeskInterviewApp"
-RUN dotnet build "TalkDeskInterviewApp.csproj" -c Release -o /app/build
+WORKDIR "/src/InteractionTrackerServer"
+RUN dotnet build "InteractionTrackerServer.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "TalkDeskInterviewApp.csproj" -c Release -o /app/publish
+RUN dotnet publish "InteractionTrackerServer.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "TalkDeskInterviewApp.dll"]
+ENTRYPOINT ["dotnet", "InteractionTrackerServer.dll"]

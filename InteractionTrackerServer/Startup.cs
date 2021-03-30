@@ -15,9 +15,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TalkDeskInterviewApp.Data;
+using InteractionTrackerServer.Data;
 
-namespace TalkDeskInterviewApp
+namespace InteractionTrackerServer
 {
     public class Startup
     {
@@ -56,11 +56,12 @@ namespace TalkDeskInterviewApp
             services.AddControllers().AddNewtonsoftJson();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "TalkDeskInterviewApp", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "InteractionTrackerServer", Version = "v1" });
             });
 
             // Repository DI
             services.AddScoped<ICommandRepo, SqlServerCommandRepo>();
+            services.AddScoped<IInteractionRepo, MockInteractionRepo>();
 
             // Rate limiting
             services.AddMemoryCache();

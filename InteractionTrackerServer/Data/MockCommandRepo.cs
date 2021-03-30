@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TalkDeskInterviewApp.Models;
+using InteractionTrackerServer.Models;
 
-namespace TalkDeskInterviewApp.Data
+namespace InteractionTrackerServer.Data
 {
     public class MockCommandRepo : ICommandRepo
     {

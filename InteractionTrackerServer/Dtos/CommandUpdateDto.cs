@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TalkDeskInterviewApp.Dtos
+namespace InteractionTrackerServer.Dtos
 {
     public class CommandUpdateDto
     {

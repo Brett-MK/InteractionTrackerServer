@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TalkDeskInterviewApp.Models
+namespace InteractionTrackerServer.Models
 {
     public enum CustomerStatus
     {
         VIP,
-        Normal
+        Normal, 
+        LowPriority
     }
 }

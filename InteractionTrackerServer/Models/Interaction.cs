@@ -4,16 +4,30 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace TalkDeskInterviewApp.Models
+namespace InteractionTrackerServer.Models
 {
     public class Interaction
     {
         [Key]
-        [Required]
         public string CallId { get; set; }
+        
+        [Required]
+        public string Timestamp { get; set; }
+
+        [Required]
+        public Duration Duration { get; set; }
+
+        [Required]
+        public WaitingTime WaitingTime { get; set; }
 
         [Required]
         public AgentData AgentData { get; set; }
+
+        [Required]
+        public CallData CallData { get; set; }
+
+        [Required]
+        public string IssueStatus { get; set; }
 
         [Required]
         public CustomerStatus CustomerStatus { get; set; }

@@ -7,11 +7,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using TalkDeskInterviewApp.Data;
-using TalkDeskInterviewApp.Dtos;
-using TalkDeskInterviewApp.Models;
+using InteractionTrackerServer.Data;
+using InteractionTrackerServer.Dtos;
+using InteractionTrackerServer.Models;
 
-namespace TalkDeskInterviewApp.Controllers
+namespace InteractionTrackerServer.Controllers
 {
     [ApiController]
     [Route("/api/commands")]

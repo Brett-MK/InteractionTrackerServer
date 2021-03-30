@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace TalkDeskInterviewApp.Migrations
+namespace InteractionTrackerServer.Migrations
 {
     public partial class InitialCreate : Migration
     {
