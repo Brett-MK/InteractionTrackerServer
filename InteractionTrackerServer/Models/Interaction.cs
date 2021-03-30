@@ -12,7 +12,7 @@ namespace InteractionTrackerServer.Models
         public string CallId { get; set; }
         
         [Required]
-        public string Timestamp { get; set; }
+        public DateTime Timestamp { get; set; }
 
         [Required]
         public Duration Duration { get; set; }

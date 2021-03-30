@@ -13,7 +13,7 @@ namespace InteractionTrackerServer.Data
                     new Interaction()
                         {
                             CallId = "asd3ad3w90d",
-                            Timestamp = "2020-08-23T15:10:47.750079",
+                            Timestamp = DateTime.Parse("2020-08-23T15:10:47.750079"),
                             Duration  = new Duration() {
                                 Value = "5",
                                 Unit = "MINUTES"
@@ -40,7 +40,7 @@ namespace InteractionTrackerServer.Data
                     new Interaction()
                         {
                             CallId = "asd3ad3w90d",
-                            Timestamp = "2020-08-23T15:10:47.750079",
+                            Timestamp = DateTime.Parse("2020-08-23T15:10:47.750079"),
                             Duration  = new Duration() {
                                 Value = "5",
                                 Unit = "MINUTES"
@@ -67,7 +67,7 @@ namespace InteractionTrackerServer.Data
                     new Interaction()
                         {
                             CallId = "asd3ad3w90d",
-                            Timestamp = "2020-08-23T15:10:47.750079",
+                            Timestamp = DateTime.Parse("2020-08-23T15:10:47.750079"),
                             Duration  = new Duration() {
                                 Value = "5",
                                 Unit = "MINUTES"
@@ -94,7 +94,7 @@ namespace InteractionTrackerServer.Data
                     new Interaction()
                         {
                             CallId = "asd3ad3w90d",
-                            Timestamp = "2020-08-23T15:10:47.750079",
+                            Timestamp = DateTime.Parse("2020-08-23T15:10:47.750079"),
                             Duration  = new Duration() {
                                 Value = "5",
                                 Unit = "MINUTES"

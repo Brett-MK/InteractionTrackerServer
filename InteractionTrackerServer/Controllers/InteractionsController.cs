@@ -10,11 +10,11 @@ namespace InteractionTrackerServer.Controllers
 {
     [ApiController]
     [Route("/api/interactions")]
-    public class InteractionController : ControllerBase
+    public class InteractionsController : ControllerBase
     {
         private readonly IInteractionRepo _interactionRepo;
 
-        public InteractionController(IInteractionRepo interactionRepo)
+        public InteractionsController(IInteractionRepo interactionRepo)
         {
             _interactionRepo = interactionRepo;
         }
@@ -46,6 +46,11 @@ namespace InteractionTrackerServer.Controllers
         [HttpPost]
         public async Task<ActionResult<Interaction>> CreateInteraction(Interaction interaction)
         {
+            if (interaction.CustomerStatus == CustomerStatus.VIP)
+            {
+                // send email to John
+            }
+
             _interactionRepo.CreateInteraction(interaction);
             await _interactionRepo.SaveChanges();
 
