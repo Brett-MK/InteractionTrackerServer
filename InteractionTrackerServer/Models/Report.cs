@@ -7,11 +7,11 @@ namespace InteractionTrackerServer.Models
 {
     public class Report
     {
-        public string TotalInteractions { get; set; }
-        public string TotalWaitTime { get; set; }
-        public string TotalDuration { get; set; }
-        public string AverageWaitTime { get; set; }
-        public string IssuesResolved { get; set; }
+        public int TotalInteractions { get; set; }
+        public int TotalWaitTime { get; set; }
+        public int TotalDuration { get; set; }
+        public double AverageWaitTime { get; set; }
+        public int IssuesResolved { get; set; }
         public TrafficByCustomerStatus TrafficByCustomerStatus { get; set; }
 }
 }

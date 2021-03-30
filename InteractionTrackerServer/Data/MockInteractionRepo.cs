@@ -15,11 +15,11 @@ namespace InteractionTrackerServer.Data
                             CallId = "asd3ad3w90d",
                             Timestamp = DateTime.Parse("2020-08-23T15:10:47.750079"),
                             Duration  = new Duration() {
-                                Value = "5",
+                                Value = 5,
                                 Unit = Unit.Minutes
                             },
                             WaitingTime = new WaitingTime() {
-                                Value = "1450",
+                                Value = 1450,
                                 Unit = Unit.Milliseconds
                             },
 	                        AgentData = new AgentData() {
@@ -42,11 +42,11 @@ namespace InteractionTrackerServer.Data
                             CallId = "asd3ad3w90d",
                             Timestamp = DateTime.Parse("2020-08-23T15:10:47.750079"),
                             Duration  = new Duration() {
-                                Value = "5",
+                                Value = 5,
                                 Unit = Unit.Minutes
                             },
                             WaitingTime = new WaitingTime() {
-                                Value = "1450",
+                                Value = 1450,
                                 Unit = Unit.Milliseconds
                             },
                             AgentData = new AgentData() {
@@ -69,11 +69,11 @@ namespace InteractionTrackerServer.Data
                             CallId = "asd3ad3w90d",
                             Timestamp = DateTime.Parse("2020-08-23T15:10:47.750079"),
                             Duration  = new Duration() {
-                                Value = "5",
+                                Value = 5,
                                 Unit = Unit.Minutes
                             },
                             WaitingTime = new WaitingTime() {
-                                Value = "1450",
+                                Value = 1450,
                                 Unit = Unit.Milliseconds
                             },
                             AgentData = new AgentData() {
@@ -96,11 +96,11 @@ namespace InteractionTrackerServer.Data
                             CallId = "asd3ad3w90d",
                             Timestamp = DateTime.Parse("2020-08-23T15:10:47.750079"),
                             Duration  = new Duration() {
-                                Value = "5",
+                                Value = 5,
                                 Unit = Unit.Minutes
                             },
                             WaitingTime = new WaitingTime() {
-                                Value = "1450",
+                                Value = 1450,
                                 Unit = Unit.Milliseconds
                             },
                             AgentData = new AgentData() {

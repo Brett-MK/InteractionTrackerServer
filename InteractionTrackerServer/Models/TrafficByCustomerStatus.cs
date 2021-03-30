@@ -7,10 +7,10 @@ namespace InteractionTrackerServer.Models
 {
     public class TrafficByCustomerStatus
     {
-        public string LowPriority { get; set; }
+        public int LowPriority { get; set; }
 
-        public string VIP { get; set; }
+        public int VIP { get; set; }
 
-        public string Normal { get; set; }
+        public int Normal { get; set; }
     }
 }

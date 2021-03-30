@@ -61,7 +61,7 @@ namespace InteractionTrackerServer
 
             // Repository DI
             services.AddScoped<ICommandRepo, SqlServerCommandRepo>();
-            services.AddScoped<IInteractionRepo, MockInteractionRepo>();
+            services.AddSingleton<IInteractionRepo, MockInteractionRepo>();
 
             // Rate limiting
             services.AddMemoryCache();

@@ -9,7 +9,7 @@ namespace InteractionTrackerServer.Models
     public class Duration
     {
         [Required]
-        public string Value { get; set; }
+        public int Value { get; set; }
 
         [Required]
         public Unit Unit { get; set; }

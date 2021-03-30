@@ -9,7 +9,7 @@ namespace InteractionTrackerServer.Models
     public class WaitingTime
     {
         [Required]
-        public string Value { get; set; }
+        public int Value { get; set; }
 
         [Required]
         public Unit Unit { get; set; }
