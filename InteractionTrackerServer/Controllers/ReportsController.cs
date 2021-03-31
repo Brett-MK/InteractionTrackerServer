@@ -2,6 +2,7 @@
 using InteractionTrackerServer.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace InteractionTrackerServer.Controllers
@@ -44,15 +45,15 @@ namespace InteractionTrackerServer.Controllers
         {
             if (interactions.Count() == 0)
             {
-                return new Report() { TrafficByCustomerStatus = new TrafficByCustomerStatus() };
+                return new Report() { TotalWaitTime = new TimeWithUnit(), TotalDuration = new TimeWithUnit(), AverageWaitTime = new TimeWithUnit(), TrafficByCustomerStatus = new TrafficByCustomerStatus() };
             }
 
             return new Report()
             {
                 TotalInteractions = interactions.Count(),
-                TotalWaitTime = interactions.Sum(i => i.WaitingTime.Value),
-                TotalDuration = interactions.Sum(i => i.Duration.Value),
-                AverageWaitTime = interactions.Average(i => i.WaitingTime.Value),
+                TotalWaitTime = new TimeWithUnit() { Value = SumTimes(interactions.Select(x => x.WaitingTime)), Unit = Unit.Minutes },
+                TotalDuration = new TimeWithUnit() { Value = SumTimes(interactions.Select(x => x.Duration)), Unit = Unit.Minutes },
+                AverageWaitTime = new TimeWithUnit() { Value = AverageTimes(interactions.Select(x => x.WaitingTime)), Unit = Unit.Minutes },
                 IssuesResolved = interactions.Count(i => i.IssueStatus == IssueStatus.Resolved),
                 TrafficByCustomerStatus = new TrafficByCustomerStatus()
                 {
@@ -61,6 +62,61 @@ namespace InteractionTrackerServer.Controllers
                     VIP = interactions.Count(i => i.CustomerStatus == CustomerStatus.VIP),
                 }
             };
+        }
+
+        private long SecondsConvert(int seconds) => TimeSpan.FromSeconds(seconds).Ticks;
+        private long MinutesConvert(int minutes) => TimeSpan.FromMinutes(minutes).Ticks;
+        private long MillisecondsConvert(int milliseconds) => TimeSpan.FromMilliseconds(milliseconds).Ticks;
+        private long HoursConvert(int hours) => TimeSpan.FromHours(hours).Ticks;
+
+        private int SumTimes(IEnumerable<TimeWithUnit> timeWithUnits)
+        {
+            var tickSum = 0L;
+            foreach (var duration in timeWithUnits)
+            {
+                switch (duration.Unit)
+                {
+                    case Unit.Milliseconds:
+                        tickSum += MillisecondsConvert(duration.Value);
+                        break;
+                    case Unit.Seconds:
+                        tickSum += SecondsConvert(duration.Value);
+                        break;
+                    case Unit.Minutes:
+                        tickSum += MinutesConvert(duration.Value);
+                        break;
+                    case Unit.Hours:
+                        tickSum += HoursConvert(duration.Value);
+                        break;
+                }
+            }
+
+            return Convert.ToInt32(TimeSpan.FromTicks(tickSum).TotalMinutes);
+        }
+
+        private int AverageTimes(IEnumerable<TimeWithUnit> timeWithUnits)
+        {
+            var timeWithUnitsInTicks = new List<long>();
+            foreach (var duration in timeWithUnits)
+            {
+                switch (duration.Unit)
+                {
+                    case Unit.Milliseconds:
+                        timeWithUnitsInTicks.Add(MillisecondsConvert(duration.Value));
+                        break;
+                    case Unit.Seconds:
+                        timeWithUnitsInTicks.Add(SecondsConvert(duration.Value));
+                        break;
+                    case Unit.Minutes:
+                        timeWithUnitsInTicks.Add(MinutesConvert(duration.Value));
+                        break;
+                    case Unit.Hours:
+                        timeWithUnitsInTicks.Add(HoursConvert(duration.Value));
+                        break;
+                }
+            }
+
+            return Convert.ToInt32(Math.Floor(TimeSpan.FromTicks((long)timeWithUnitsInTicks.Average()).TotalMinutes));
         }
     }
 }

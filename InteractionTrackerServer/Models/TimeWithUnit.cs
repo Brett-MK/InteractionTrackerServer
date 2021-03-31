@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace InteractionTrackerServer.Models
 {
-    public class Duration
+    public class TimeWithUnit
     {
         [Required]
         public int Value { get; set; }

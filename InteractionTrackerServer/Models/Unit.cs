@@ -7,9 +7,9 @@ namespace InteractionTrackerServer.Models
 {
     public enum Unit
     {
-        Minutes,
-        Seconds,
         Milliseconds,
+        Seconds,
+        Minutes,
         Hours
     }
 }

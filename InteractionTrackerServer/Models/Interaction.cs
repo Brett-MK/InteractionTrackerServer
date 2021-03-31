@@ -15,10 +15,10 @@ namespace InteractionTrackerServer.Models
         public DateTime Timestamp { get; set; }
 
         [Required]
-        public Duration Duration { get; set; }
+        public TimeWithUnit Duration { get; set; }
 
         [Required]
-        public WaitingTime WaitingTime { get; set; }
+        public TimeWithUnit WaitingTime { get; set; }
 
         [Required]
         public AgentData AgentData { get; set; }
