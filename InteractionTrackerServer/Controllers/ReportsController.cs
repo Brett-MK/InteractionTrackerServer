@@ -1,4 +1,5 @@
 ﻿using InteractionTrackerServer.Data;
+using InteractionTrackerServer.Enums;
 using InteractionTrackerServer.Models;
 using InteractionTrackerServer.Utils;
 using Microsoft.AspNetCore.Mvc;

@@ -1,4 +1,5 @@
-﻿using InteractionTrackerServer.Models;
+﻿using InteractionTrackerServer.Enums;
+using InteractionTrackerServer.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +40,34 @@ namespace InteractionTrackerServer.Data
                         },
                     new Interaction()
                         {
-                            CallId = "asd3ad3w90d",
+                            CallId = "12oklkp12hu1",
+                            Timestamp = DateTime.Parse("2021-03-31T15:10:47.750079"),
+                            Duration  = new TimeWithUnit() {
+                                Value = 5,
+                                Unit = Unit.Minutes
+                            },
+                            WaitingTime = new TimeWithUnit() {
+                                Value = 1450,
+                                Unit = Unit.Seconds
+                            },
+                            AgentData = new AgentData() {
+                                AgentId = "49nvfos95a",
+                                AgentName = "Jane",
+                                AgentEmail = "jane@johndoecc.com"
+
+                            },
+                            CallData = new CallData() {
+                                CallerName = "Trevor Borskov",
+                                CallerNumber = "+10010020003",
+                                CcNumber = "+19876543210",
+                                Direction = Direction.Inbound
+                            },
+                            IssueStatus = IssueStatus.Resolved,
+                            CustomerStatus = CustomerStatus.VIP
+                        },
+                    new Interaction()
+                        {
+                            CallId = "56wsfgs6yhg7dgf",
                             Timestamp = DateTime.Parse("2020-08-23T15:10:47.750079"),
                             Duration  = new TimeWithUnit() {
                                 Value = 5,
@@ -61,39 +89,12 @@ namespace InteractionTrackerServer.Data
                                 CcNumber = "+19876543210",
                                 Direction = Direction.Inbound
                             },
-                            IssueStatus = IssueStatus.Resolved,
+                            IssueStatus = IssueStatus.Pending,
                             CustomerStatus = CustomerStatus.VIP
                         },
                     new Interaction()
                         {
-                            CallId = "asd3ad3w90d",
-                            Timestamp = DateTime.Parse("2020-08-23T15:10:47.750079"),
-                            Duration  = new TimeWithUnit() {
-                                Value = 5,
-                                Unit = Unit.Minutes
-                            },
-                            WaitingTime = new TimeWithUnit() {
-                                Value = 1450,
-                                Unit = Unit.Milliseconds
-                            },
-                            AgentData = new AgentData() {
-                                AgentId = "49nvfos95a",
-                                AgentName = "Jane",
-                                AgentEmail = "jane@johndoecc.com"
-
-                            },
-                            CallData = new CallData() {
-                                CallerName = "Trevor Borskov",
-                                CallerNumber = "+10010020003",
-                                CcNumber = "+19876543210",
-                                Direction = Direction.Inbound
-                            },
-                            IssueStatus = IssueStatus.Resolved,
-                            CustomerStatus = CustomerStatus.VIP
-                        },
-                    new Interaction()
-                        {
-                            CallId = "asd3ad3w90d",
+                            CallId = "398ahsduio32",
                             Timestamp = DateTime.Parse("2020-08-23T15:10:47.750079"),
                             Duration  = new TimeWithUnit() {
                                 Value = 5,

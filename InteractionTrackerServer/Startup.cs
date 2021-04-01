@@ -16,6 +16,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using InteractionTrackerServer.Data;
+using Newtonsoft.Json.Converters;
 
 namespace InteractionTrackerServer
 {
@@ -33,6 +34,11 @@ namespace InteractionTrackerServer
         {
             // Entity framework db context
             services.AddDbContext<CommandContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("CommandDbConnectionString")));
+
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(options => options.WithOrigins("http://localhost:5002").AllowAnyMethod());
+            });
 
             // Authentication
             services
@@ -53,7 +59,7 @@ namespace InteractionTrackerServer
             // Auto mapper
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-            services.AddControllers().AddNewtonsoftJson();
+            services.AddControllers().AddNewtonsoftJson(opts => opts.SerializerSettings.Converters.Add(new StringEnumConverter()));
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "InteractionTrackerServer", Version = "v1" });
@@ -87,6 +93,8 @@ namespace InteractionTrackerServer
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthentication();
 

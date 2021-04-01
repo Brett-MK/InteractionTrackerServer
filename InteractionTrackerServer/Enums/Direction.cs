@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace InteractionTrackerServer.Models
+namespace InteractionTrackerServer.Enums
 {
-    public enum IssueStatus
+    public enum Direction
     {
-        Resolved,
-        Pending
+        Inbound,
+        Outbound
     }
 }
