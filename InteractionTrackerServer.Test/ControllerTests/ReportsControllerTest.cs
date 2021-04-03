@@ -14,7 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InteractionTrackerServer.Test
+namespace InteractionTrackerServer.ControllerTests
 {
     [TestClass]
     public class ReportsControllerTest

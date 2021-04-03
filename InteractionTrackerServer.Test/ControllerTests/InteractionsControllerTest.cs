@@ -14,7 +14,7 @@ using InteractionTrackerServer.Enums;
 using InteractionTrackerServer.Dtos.ReadDtos;
 using System;
 
-namespace InteractionTrackerServer.Test
+namespace InteractionTrackerServer.ControllerTests
 {
     [TestClass]
     public class InteractionsControllerTest

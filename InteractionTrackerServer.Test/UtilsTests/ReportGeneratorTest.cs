@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace InteractionTrackerServer.Test
+namespace InteractionTrackerServer.UtilsTests
 {
     [TestClass]
     public class ReportGeneratorTest
