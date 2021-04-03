@@ -9,6 +9,9 @@ namespace InteractionTrackerServer.Models
     public class AgentData
     {
         [Key]
+        public int Id { get; set; }
+
+        [Required]
         public string AgentId { get; set; }
 
         [Required]

@@ -33,7 +33,7 @@ namespace InteractionTrackerServer
         public void ConfigureServices(IServiceCollection services)
         {
             // Entity framework db context
-            services.AddDbContext<CommandContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("CommandDbConnectionString")));
+            services.AddDbContext<InteractionContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("InteractionDbConnectionString")));
 
             services.AddCors(options =>
             {
@@ -66,8 +66,7 @@ namespace InteractionTrackerServer
             });
 
             // Repository DI
-            services.AddScoped<ICommandRepo, SqlServerCommandRepo>();
-            services.AddSingleton<IInteractionRepo, MockInteractionRepo>();
+            services.AddScoped<IInteractionRepo, SqlServerInteractionRepo>();
 
             // Rate limiting
             services.AddMemoryCache();

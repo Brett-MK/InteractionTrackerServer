@@ -13,11 +13,11 @@ namespace InteractionTrackerServer.Profiles
         public CommandsProfile()
         {
             // Source => target
-            CreateMap<Command, CommandReadDto>();
-            CreateMap<CommandReadDto, Command>();
-            CreateMap<CommandCreateDto, Command>();
-            CreateMap<CommandUpdateDto, Command>();
-            CreateMap<Command, CommandUpdateDto>();
+            //CreateMap<Command, CommandReadDto>();
+            //CreateMap<CommandReadDto, Command>();
+            //CreateMap<CommandCreateDto, Command>();
+            //CreateMap<CommandUpdateDto, Command>();
+            //CreateMap<Command, CommandUpdateDto>();
         }
     }
 }
