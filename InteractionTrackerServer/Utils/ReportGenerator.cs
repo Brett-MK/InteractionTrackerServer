@@ -9,7 +9,7 @@ namespace InteractionTrackerServer.Utils
 {
     public static class ReportGenerator
     {
-        public static Report GenerateReport(IQueryable<Interaction> interactions)
+        public static Report GenerateReport(IEnumerable<Interaction> interactions)
         {
             if (interactions.Count() == 0)
             {
@@ -19,9 +19,9 @@ namespace InteractionTrackerServer.Utils
             return new Report()
             {
                 TotalInteractions = interactions.Count(),
-                TotalWaitTime = new TimeWithUnit() { Value = InteractionTimeMathUtil.SumTimes(interactions.Select(x => x.WaitingTime)), Unit = Unit.Minutes },
-                TotalDuration = new TimeWithUnit() { Value = InteractionTimeMathUtil.SumTimes(interactions.Select(x => x.Duration)), Unit = Unit.Minutes },
-                AverageWaitTime = new TimeWithUnit() { Value = InteractionTimeMathUtil.AverageTimes(interactions.Select(x => x.WaitingTime)), Unit = Unit.Minutes },
+                TotalWaitTime = new TimeWithUnit() { Value = InteractionTimeMathUtil.SumTimes(interactions.Select(x => x.WaitingTime)), Unit = Unit.Milliseconds },
+                TotalDuration = new TimeWithUnit() { Value = InteractionTimeMathUtil.SumTimes(interactions.Select(x => x.Duration)), Unit = Unit.Milliseconds },
+                AverageWaitTime = new TimeWithUnit() { Value = InteractionTimeMathUtil.AverageTimes(interactions.Select(x => x.WaitingTime)), Unit = Unit.Milliseconds },
                 IssuesResolved = interactions.Count(i => i.IssueStatus == IssueStatus.Resolved),
                 TrafficByCustomerStatus = new TrafficByCustomerStatus()
                 {

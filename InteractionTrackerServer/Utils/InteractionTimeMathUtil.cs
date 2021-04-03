@@ -25,7 +25,7 @@ namespace InteractionTrackerServer.Utils
                 tickSum += _converters[duration.Unit](duration.Value);
             }
 
-            return Convert.ToInt32(TimeSpan.FromTicks(tickSum).TotalMinutes);
+            return Convert.ToInt32(TimeSpan.FromTicks(tickSum).TotalMilliseconds);
         }
 
         public static int AverageTimes(IEnumerable<TimeWithUnit> timeWithUnits)
@@ -36,7 +36,7 @@ namespace InteractionTrackerServer.Utils
                 timeWithUnitsInTicks.Add(_converters[duration.Unit](duration.Value));
             }
 
-            return Convert.ToInt32(Math.Floor(TimeSpan.FromTicks((long)timeWithUnitsInTicks.Average()).TotalMinutes));
+            return Convert.ToInt32(Math.Floor(TimeSpan.FromTicks((long)timeWithUnitsInTicks.Average()).TotalMilliseconds));
         }
     }
 }
