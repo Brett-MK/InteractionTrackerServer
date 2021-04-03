@@ -4,6 +4,7 @@ using InteractionTrackerServer.Dtos.ReadDtos;
 using InteractionTrackerServer.Enums;
 using InteractionTrackerServer.Models;
 using InteractionTrackerServer.Utils;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -26,6 +27,7 @@ namespace InteractionTrackerServer.Controllers
 
         // GET /api/reports/daily
         [HttpGet("daily")]
+        [Authorize]
         public ActionResult<ReportReadDto> GetDailyReport()
         {
             var interactionsToday = _interactionRepo.GetAllInteractions().Where(i => i.Timestamp >= DateTime.Today && i.Timestamp < DateTime.Today.AddDays(1));

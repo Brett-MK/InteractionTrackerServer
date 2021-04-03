@@ -29,9 +29,10 @@ namespace InteractionTrackerServer.Controllers
 
         // GET /api/interactions
         [HttpGet]
+        [Authorize]
         public ActionResult<IEnumerable<InteractionReadDto>> GetAllInteractions()
         {
-            var interactions = _interactionRepo.GetAllInteractions();
+            var interactions = _interactionRepo.GetAllInteractions().OrderByDescending(i => i.Timestamp);
 
             return Ok(_mapper.Map<IEnumerable<Interaction>, IEnumerable<InteractionReadDto>>(interactions));
         }
