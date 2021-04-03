@@ -26,7 +26,7 @@ namespace InteractionTrackerServer.Controllers
 
         // GET /api/reports/daily
         [HttpGet("daily")]
-        public ActionResult<Report> GetDailyReport()
+        public ActionResult<ReportReadDto> GetDailyReport()
         {
             var interactionsToday = _interactionRepo.GetAllInteractions().Where(i => i.Timestamp >= DateTime.Today && i.Timestamp < DateTime.Today.AddDays(1));
             var todaysReport = ReportGenerator.GenerateReport(interactionsToday);
