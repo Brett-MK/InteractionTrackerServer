@@ -3,9 +3,12 @@ using InteractionTrackerServer.Data;
 using InteractionTrackerServer.Dtos.CreateDtos;
 using InteractionTrackerServer.Dtos.ReadDtos;
 using InteractionTrackerServer.Enums;
+using InteractionTrackerServer.Hubs;
 using InteractionTrackerServer.Models;
+using InteractionTrackerServer.Utils;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,11 +23,13 @@ namespace InteractionTrackerServer.Controllers
     {
         private readonly IInteractionRepo _interactionRepo;
         private readonly IMapper _mapper;
+        private readonly IHubContext<InteractionHub> _hub;
 
-        public InteractionsController(IInteractionRepo interactionRepo, IMapper mapper)
+        public InteractionsController(IInteractionRepo interactionRepo, IMapper mapper, IHubContext<InteractionHub> hub)
         {
             _interactionRepo = interactionRepo;
             _mapper = mapper;
+            _hub = hub;
         }
 
         // GET /api/interactions
@@ -63,12 +68,17 @@ namespace InteractionTrackerServer.Controllers
             }
 
             _interactionRepo.CreateInteraction(interaction);
-
+          
             try
             {
                 await _interactionRepo.SaveChanges();
+
+                var allInteractions = _interactionRepo.GetAllInteractions().OrderByDescending(i => i.Timestamp);
+                var dailyReport = ReportGenerator.GenerateReport(allInteractions.Where(i => i.Timestamp >= DateTime.Today && i.Timestamp < DateTime.Today.AddDays(1)));
+                await _hub.Clients.All.SendAsync("InteractionsAdded", _mapper.Map<IEnumerable<Interaction>, IEnumerable<InteractionReadDto>>(allInteractions));
+                await _hub.Clients.All.SendAsync("DailyReportUpdated", _mapper.Map<Report, ReportReadDto>(dailyReport));
             }
-            catch
+            catch(Exception e)
             {
                 return BadRequest();
             }

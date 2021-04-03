@@ -13,6 +13,8 @@ using InteractionTrackerServer.Dtos.CreateDtos;
 using InteractionTrackerServer.Enums;
 using InteractionTrackerServer.Dtos.ReadDtos;
 using System;
+using Microsoft.AspNetCore.SignalR;
+using InteractionTrackerServer.Hubs;
 
 namespace InteractionTrackerServer.ControllerTests
 {
@@ -21,12 +23,13 @@ namespace InteractionTrackerServer.ControllerTests
     {
         private Mock<IInteractionRepo> _mockRepo = new Mock<IInteractionRepo>();
         private Mock<IMapper> _mockMapper = new Mock<IMapper>();
+        private Mock<IHubContext<InteractionHub>> _mockHub = new Mock<IHubContext<InteractionHub>>();
         private InteractionsController _interactionsController;
 
         [TestInitialize]
         public void TestInitialize()
         {
-            _interactionsController = new InteractionsController(_mockRepo.Object, _mockMapper.Object);
+            _interactionsController = new InteractionsController(_mockRepo.Object, _mockMapper.Object, _mockHub.Object);
         }
 
         [TestMethod]

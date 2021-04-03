@@ -17,6 +17,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using InteractionTrackerServer.Data;
 using Newtonsoft.Json.Converters;
+using InteractionTrackerServer.Hubs;
+using System.Text.Json.Serialization;
 
 namespace InteractionTrackerServer
 {
@@ -35,9 +37,12 @@ namespace InteractionTrackerServer
             // Entity framework db context
             services.AddDbContext<InteractionContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("InteractionDbConnectionString")));
 
+            // Signal R
+            services.AddSignalR().AddJsonProtocol(opts => opts.PayloadSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
+
             services.AddCors(options =>
             {
-                options.AddDefaultPolicy(options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+                options.AddDefaultPolicy(options => options.WithOrigins("http://localhost:5002").AllowAnyMethod().AllowAnyHeader().AllowCredentials());
             });
 
             // Authentication
@@ -102,6 +107,7 @@ namespace InteractionTrackerServer
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<InteractionHub>("/interactionHub");
             });
         }
     }
