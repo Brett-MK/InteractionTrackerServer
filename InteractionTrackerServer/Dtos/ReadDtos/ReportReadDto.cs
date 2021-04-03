@@ -7,8 +7,8 @@ namespace InteractionTrackerServer.Dtos.ReadDtos
 {
     public class ReportReadDto
     {
-        public int TotalInteractions { get; set; }
-        public int IssuesResolved { get; set; }
+        public long TotalInteractions { get; set; }
+        public long IssuesResolved { get; set; }
         public TimeWithUnitReadDto TotalWaitTime { get; set; }
         public TimeWithUnitReadDto TotalDuration { get; set; }
         public TimeWithUnitReadDto AverageWaitTime { get; set; }

@@ -67,7 +67,7 @@ namespace InteractionTrackerServer.Controllers
             {
                 await _interactionRepo.SaveChanges();
             }
-            catch (Exception ex)
+            catch
             {
                 return BadRequest();
             }

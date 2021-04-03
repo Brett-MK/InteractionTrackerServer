@@ -9,34 +9,34 @@ namespace InteractionTrackerServer.Utils
 {
     public static class InteractionTimeMathUtil
     {
-        private static Dictionary<Unit, Func<int, long>> _converters = new Dictionary<Unit, Func<int, long>>()
+        private static Dictionary<Unit, Func<long, long>> _converters = new Dictionary<Unit, Func<long, long>>()
         {
-            { Unit.Milliseconds, (int milliseconds) => TimeSpan.FromMilliseconds(milliseconds).Ticks },
-            { Unit.Seconds, (int seconds) => TimeSpan.FromSeconds(seconds).Ticks },
-            { Unit.Minutes, (int minutes) => TimeSpan.FromMinutes(minutes).Ticks },
-            { Unit.Hours, (int hours) => TimeSpan.FromHours(hours).Ticks }
+            { Unit.Milliseconds, (long milliseconds) => milliseconds },
+            { Unit.Seconds, (long seconds) => (long)TimeSpan.FromSeconds(seconds).TotalMilliseconds },
+            { Unit.Minutes, (long minutes) => (long)TimeSpan.FromMinutes(minutes).TotalMilliseconds },
+            { Unit.Hours, (long hours) => (long)TimeSpan.FromHours(hours).TotalMilliseconds }
         };
 
-        public static int SumTimes(IEnumerable<TimeWithUnit> timeWithUnits)
+        public static long SumTimes(IEnumerable<TimeWithUnit> timeWithUnits)
         {
-            var tickSum = 0L;
+            var millisecondsSum = 0L;
             foreach (var duration in timeWithUnits)
             {
-                tickSum += _converters[duration.Unit](duration.Value);
+                millisecondsSum += _converters[duration.Unit](duration.Value);
             }
 
-            return Convert.ToInt32(TimeSpan.FromTicks(tickSum).TotalMilliseconds);
+            return millisecondsSum;
         }
 
-        public static int AverageTimes(IEnumerable<TimeWithUnit> timeWithUnits)
+        public static long AverageTimes(IEnumerable<TimeWithUnit> timeWithUnits)
         {
-            var timeWithUnitsInTicks = new List<long>();
+            var timeInMilliseconds = new List<long>();
             foreach (var duration in timeWithUnits)
             {
-                timeWithUnitsInTicks.Add(_converters[duration.Unit](duration.Value));
+                timeInMilliseconds.Add(_converters[duration.Unit](duration.Value));
             }
 
-            return Convert.ToInt32(Math.Floor(TimeSpan.FromTicks((long)timeWithUnitsInTicks.Average()).TotalMilliseconds));
+            return (long)Math.Floor(timeInMilliseconds.Average());
         }
     }
 }

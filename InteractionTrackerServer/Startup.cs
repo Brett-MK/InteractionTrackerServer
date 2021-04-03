@@ -37,7 +37,7 @@ namespace InteractionTrackerServer
 
             services.AddCors(options =>
             {
-                options.AddDefaultPolicy(options => options.WithOrigins("http://localhost:5002").AllowAnyMethod());
+                options.AddDefaultPolicy(options => options.AllowAnyOrigin().AllowAnyMethod());
             });
 
             // Authentication

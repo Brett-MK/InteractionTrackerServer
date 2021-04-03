@@ -4,14 +4,16 @@ using InteractionTrackerServer.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace InteractionTrackerServer.Migrations
 {
     [DbContext(typeof(InteractionContext))]
-    partial class InteractionContextModelSnapshot : ModelSnapshot
+    [Migration("20210403181834_MovingIntsToLongs")]
+    partial class MovingIntsToLongs
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

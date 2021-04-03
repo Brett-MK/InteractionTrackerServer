@@ -14,7 +14,7 @@ namespace InteractionTrackerServer.Models
         public int Id { get; set; }
         
         [Required]
-        public int Value { get; set; }
+        public long Value { get; set; }
 
         [Required]
         public Unit Unit { get; set; }
