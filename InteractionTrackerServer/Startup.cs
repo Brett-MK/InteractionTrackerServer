@@ -45,13 +45,13 @@ namespace InteractionTrackerServer
                 .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
-                    options.Authority = "https://securetoken.google.com/commander-ac45e";
+                    options.Authority = "https://securetoken.google.com/interactiontracker";
                     options.TokenValidationParameters = new TokenValidationParameters
                     {
                         ValidateIssuer = true,
-                        ValidIssuer = "https://securetoken.google.com/commander-ac45e",
+                        ValidIssuer = "https://securetoken.google.com/interactiontracker",
                         ValidateAudience = true,
-                        ValidAudience = "commander-ac45e",
+                        ValidAudience = "interactiontracker",
                         ValidateLifetime = true
                     };
                 });
