@@ -30,7 +30,7 @@ namespace InteractionTrackerServer.Controllers
         [Authorize]
         public ActionResult<ReportReadDto> GetDailyReport()
         {
-            var interactionsToday = _interactionRepo.GetAllInteractions().Where(i => i.Timestamp >= DateTime.Today && i.Timestamp < DateTime.Today.AddDays(1));
+            var interactionsToday = _interactionRepo.GetAllInteractions().ToList().Where(i => i.Timestamp.ToLocalTime() >= DateTime.Today && i.Timestamp.ToLocalTime() < DateTime.Today.AddDays(1));
             var todaysReport = ReportGenerator.GenerateReport(interactionsToday);
 
             return Ok(_mapper.Map<Report, ReportReadDto>(todaysReport));
