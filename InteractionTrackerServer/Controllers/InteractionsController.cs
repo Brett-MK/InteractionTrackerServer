@@ -37,7 +37,7 @@ namespace InteractionTrackerServer.Controllers
         [Authorize]
         public ActionResult<IEnumerable<InteractionReadDto>> GetAllInteractions()
         {
-            var interactions = _interactionRepo.GetAllInteractions().OrderByDescending(i => i.Timestamp);
+            var interactions = _interactionRepo.GetAllInteractions().ToList().OrderByDescending(i => i.Timestamp);
 
             return Ok(_mapper.Map<IEnumerable<Interaction>, IEnumerable<InteractionReadDto>>(interactions));
         }
@@ -73,7 +73,7 @@ namespace InteractionTrackerServer.Controllers
             {
                 await _interactionRepo.SaveChanges();
 
-                var allInteractions = _interactionRepo.GetAllInteractions().OrderByDescending(i => i.Timestamp).ToList();
+                var allInteractions = _interactionRepo.GetAllInteractions().ToList().OrderByDescending(i => i.Timestamp).ToList();
                 var dailyReport = ReportGenerator.GenerateReport(allInteractions.Where(i => i.Timestamp.ToLocalTime() >= DateTime.Today && i.Timestamp.ToLocalTime() < DateTime.Today.AddDays(1)));
                 await _hub.Clients.All.SendAsync("InteractionsAdded", allInteractions);
                 await _hub.Clients.All.SendAsync("DailyReportUpdated", dailyReport);
